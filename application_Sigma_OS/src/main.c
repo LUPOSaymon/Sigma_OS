@@ -50,11 +50,19 @@
 #include "xil_printf.h"
 
 
+void printHiTest();			//Used to print a simple Hi on the UART port
+
 int main()
 {
     init_platform();
-    print("Hello World\n\r");
-    print("Successfully ran Hello World application");
+    //printHiTest();
+
     cleanup_platform();
+
     return 0;
+}
+
+void printHiTest()
+{
+	print("Hi");
 }
