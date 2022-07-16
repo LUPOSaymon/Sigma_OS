@@ -15,3 +15,5 @@ platform create -name {platform_pynq_z2}\
 platform write
 platform generate -domains 
 platform active {platform_pynq_z2}
+bsp reload
+platform generate

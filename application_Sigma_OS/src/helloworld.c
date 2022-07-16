@@ -53,7 +53,6 @@
 int main()
 {
     init_platform();
-
     print("Hello World\n\r");
     print("Successfully ran Hello World application");
     cleanup_platform();
