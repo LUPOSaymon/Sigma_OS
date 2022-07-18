@@ -48,18 +48,26 @@
 #include <stdio.h>
 #include "platform.h"
 #include "xil_printf.h"
-
-
+#include "xtime_l.h"
 void printHiTest();			//Used to print a simple Hi on the UART port
 
 int main()
 {
-    init_platform();
-    //printHiTest();
+	XTime start,end;
+	init_platform();
+	XTime_GetTime(&start);
+	while(1)
+	{
+		XTime_GetTime(&end);
+		if((end-start) / COUNTS_PER_SECOND >=1)
+		{
+			printf("Hi from pynq-z2.\n");
+			start = end;
+		}
+	}
 
-    cleanup_platform();
-
-    return 0;
+	cleanup_platform();
+	return 0;
 }
 
 void printHiTest()
